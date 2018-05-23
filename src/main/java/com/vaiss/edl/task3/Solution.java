@@ -27,12 +27,9 @@ public class Solution {
         //enable case insensitive palindrome check for words and space-separated sentences
         String adaptedInput = input.toLowerCase().replaceAll(" ","");
 
-        int len = adaptedInput.length();
+        String adaptedInputReverse = new StringBuilder(adaptedInput).reverse().toString();
 
-        String leftPart = adaptedInput.substring(0, len / 2);
-        String rightPart = new StringBuilder(adaptedInput.substring(len - len / 2)).reverse().toString();
-
-        if (leftPart.equals(rightPart)) {
+        if (adaptedInput.equals(adaptedInputReverse)) {
             System.out.printf("%s - это палиндром",input);
         } else {
             System.out.printf("%s - это не палиндром", input);
