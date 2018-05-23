@@ -14,7 +14,7 @@ public class Solution {
         BufferedReader consoleReader = new BufferedReader(new InputStreamReader(System.in));
         String input = "";
 
-            System.out.println("Введите слово: ");
+            System.out.println("Введите слово или предложение: ");
 
             try {
 
@@ -24,6 +24,19 @@ public class Solution {
                 System.out.println("УПС! Непредвиденная ошибка! Попробуйте запустить программу еще раз!");
             }
 
+        //enable case insensitive palindrome check for words and space-separated sentences
+        String adaptedInput = input.toLowerCase().replaceAll(" ","");
+
+        int len = adaptedInput.length();
+
+        String leftPart = adaptedInput.substring(0, len / 2);
+        String rightPart = new StringBuilder(adaptedInput.substring(len - len / 2)).reverse().toString();
+
+        if (leftPart.equals(rightPart)) {
+            System.out.printf("%s - это палиндром",input);
+        } else {
+            System.out.printf("%s - это не палиндром", input);
+        }
 
     }
 }
